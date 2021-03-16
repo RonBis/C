@@ -6,8 +6,8 @@ void showResult(int arr[]){
     }
 }
 
-void sort(int arr[], int low, int high){
-    int i,j,x=arr[5],flag1,flag2;   //arr[middle element]
+void sort(int arr[], int i, int j){
+    int x=arr[5],flag1,flag2;   //arr[middle element]
     if(arr[i]>x){
         flag1=arr[i];
     }else{
@@ -26,22 +26,27 @@ void sort(int arr[], int low, int high){
         if(flag2 !=0.1){
             arr[i] = flag2;
             arr[j] = flag1;
+            showResult(arr);
+            sort(arr, 0, 10);
         }else{
             if(arr[j]==x){
                 arr[i]=x;
                 arr[j]=flag1;
+                showResult(arr);
+                sort(arr, 0, 10);
             }
         }
     }else{
         if(arr[i]==x){
             arr[i]=flag2;
             arr[j]=x;
+            showResult(arr);
+            sort(arr, 0, 10);
         }
     }
     if(flag1==0.1 && flag2==0.1){
         //break into two sets
     }
-    showResult(arr);
 }
 
 int main(){
